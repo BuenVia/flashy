@@ -1,0 +1,33 @@
+#:kivy 2.2.1
+
+MainLayout:
+
+<MainLayout>:
+    orientation: "vertical"
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: 1, .25
+        Label:
+            id: display_lang_label
+            text: root.display_lang
+        Label:
+            text: root.display_number
+    Label:
+        id: word_label
+        font_size: "36dp"
+        text: root.display_word
+        canvas.before:
+            Color:
+                rgb: root.bg_color()
+            Rectangle:
+                size: self.size
+                pos: self.pos
+    BoxLayout:
+        orientation: "horizontal"
+        size_hint: 1, .25
+        Button:
+            text: "Flip"
+            on_release: root.flip()
+        Button:
+            text: "Next"
+            on_release: root.next()
